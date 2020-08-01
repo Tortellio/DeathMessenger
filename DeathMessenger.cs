@@ -10,6 +10,7 @@ using UnityEngine;
 using Steamworks;
 using System.Collections.Generic;
 using OpenMod.API.Users;
+using Math = System.Math;
 
 [assembly: PluginMetadata("Tortellio.DeathMessenger", Author = "Tortellio", DisplayName = "DeathMessenger", 
     Website = "https://github.com/Tortellio/DeathMessenger/")]
@@ -51,138 +52,140 @@ namespace DeathMessenger
 
             PlayerLife.onPlayerDied -= OnPlayerDied;
             m_Logger.LogInformation(m_StringLocalizer["PLUGIN_EVENTS:PLUGIN_STOP"]);
-            m_Configuration.GetValue()
+
             await UniTask.SwitchToThreadPool();
         }
         public async void OnPlayerDied(PlayerLife victim, EDeathCause cause, ELimb limb, CSteamID killer)
         {
             await UniTask.SwitchToMainThread();
+            Color.
             switch (cause)
             {
                 case EDeathCause.ACID:
-                    if (Config.AcidMessage) Say(m_StringLocalizer["DEATH_CAUSES:DEATH_CAUSES:CAUSE_ACID", victim.player.channel.owner.playerID.characterName), DeathMsgColor, Config.DeathIconURL];
-                    if (Config.LocationMessage) Say(m_StringLocalizer["DEATH_CAUSES:LOCATION", victim.player.channel.owner.playerID.characterName, VictimLocation(victim.player)), LocationMsgColor, Config.LocationIconURL);
+                    if (m_Configuration.GetSection("Death_Causes:AcidMessage").Get<bool>()) Say(m_StringLocalizer["DEATH_CAUSES:DEATH_CAUSES:CAUSE_ACID", victim.player.channel.owner.playerID.characterName), DeathMsgColor, m_Configuration.GetSection("Death_Causes:DeathIconURL];
+                    if (m_Configuration.GetSection("Location:LocationMessage").Get<bool>()) Say(m_StringLocalizer["DEATH_CAUSES:LOCATION", victim.player.channel.owner.playerID.characterName, VictimLocation(victim.player)), LocationMsgColor, m_Configuration.GetSection("Death_Causes:LocationIconURL);
                     break;
                 case EDeathCause.ANIMAL:
-                    if (Config.AnimalMessage) Say(m_StringLocalizer["DEATH_CAUSES:CAUSE_ANIMAL", victim.player.channel.owner.playerID.characterName), DeathMsgColor, Config.DeathIconURL);
-                    if (Config.LocationMessage) Say(m_StringLocalizer["DEATH_CAUSES:LOCATION", victim.player.channel.owner.playerID.characterName, VictimLocation(victim.player)), LocationMsgColor, Config.LocationIconURL);
+                    if (m_Configuration.GetSection("Death_Causes:AnimalMessage").Get<bool>()) Say(m_StringLocalizer["DEATH_CAUSES:CAUSE_ANIMAL", victim.player.channel.owner.playerID.characterName), DeathMsgColor, m_Configuration.GetSection("Death_Causes:DeathIconURL);
+                    if (m_Configuration.GetSection("Location:LocationMessage").Get<bool>()) Say(m_StringLocalizer["DEATH_CAUSES:LOCATION", victim.player.channel.owner.playerID.characterName, VictimLocation(victim.player)), LocationMsgColor, m_Configuration.GetSection("Death_Causes:LocationIconURL);
                     break;
                 case EDeathCause.ARENA:
-                    if (Config.ArenaMessage) Say(m_StringLocalizer["DEATH_CAUSES:CAUSE_ARENA", victim.player.channel.owner.playerID.characterName), DeathMsgColor, Config.DeathIconURL);
-                    if (Config.LocationMessage) Say(m_StringLocalizer["DEATH_CAUSES:LOCATION", victim.player.channel.owner.playerID.characterName, VictimLocation(victim.player)), LocationMsgColor, Config.LocationIconURL);
+                    if (m_Configuration.GetSection("Death_Causes:ArenaMessage").Get<bool>()) Say(m_StringLocalizer["DEATH_CAUSES:CAUSE_ARENA", victim.player.channel.owner.playerID.characterName), DeathMsgColor, m_Configuration.GetSection("Death_Causes:DeathIconURL);
+                    if (m_Configuration.GetSection("Location:LocationMessage").Get<bool>()) Say(m_StringLocalizer["DEATH_CAUSES:LOCATION", victim.player.channel.owner.playerID.characterName, VictimLocation(victim.player)), LocationMsgColor, m_Configuration.GetSection("Death_Causes:LocationIconURL);
                     break;
                 case EDeathCause.BLEEDING:
-                    if (Config.BleedingMessage) Say(m_StringLocalizer["DEATH_CAUSES:CAUSE_BLEEDING", victim.player.channel.owner.playerID.characterName), DeathMsgColor, Config.DeathIconURL);
-                    if (Config.LocationMessage) Say(m_StringLocalizer["DEATH_CAUSES:LOCATION", victim.player.channel.owner.playerID.characterName, VictimLocation(victim.player)), LocationMsgColor, Config.LocationIconURL);
+                    if (m_Configuration.GetSection("Death_Causes:BleedingMessage").Get<bool>()) Say(m_StringLocalizer["DEATH_CAUSES:CAUSE_BLEEDING", victim.player.channel.owner.playerID.characterName), DeathMsgColor, m_Configuration.GetSection("Death_Causes:DeathIconURL);
+                    if (m_Configuration.GetSection("Location:LocationMessage").Get<bool>()) Say(m_StringLocalizer["DEATH_CAUSES:LOCATION", victim.player.channel.owner.playerID.characterName, VictimLocation(victim.player)), LocationMsgColor, m_Configuration.GetSection("Death_Causes:LocationIconURL);
                     break;
                 case EDeathCause.BONES:
-                    if (Config.BonesMessage) Say(m_StringLocalizer["DEATH_CAUSES:CAUSE_BONES", victim.player.channel.owner.playerID.characterName), DeathMsgColor, Config.DeathIconURL);
-                    if (Config.LocationMessage) Say(m_StringLocalizer["DEATH_CAUSES:LOCATION", victim.player.channel.owner.playerID.characterName, VictimLocation(victim.player)), LocationMsgColor, Config.LocationIconURL);
+                    if (m_Configuration.GetSection("Death_Causes:BonesMessage").Get<bool>()) Say(m_StringLocalizer["DEATH_CAUSES:CAUSE_BONES", victim.player.channel.owner.playerID.characterName), DeathMsgColor, m_Configuration.GetSection("Death_Causes:DeathIconURL);
+                    if (m_Configuration.GetSection("Location:LocationMessage").Get<bool>()) Say(m_StringLocalizer["DEATH_CAUSES:LOCATION", victim.player.channel.owner.playerID.characterName, VictimLocation(victim.player)), LocationMsgColor, m_Configuration.GetSection("Death_Causes:LocationIconURL);
                     break;
                 case EDeathCause.BOULDER:
-                    if (Config.BoulderMessage) Say(m_StringLocalizer["DEATH_CAUSES:CAUSE_BOULDER", victim.player.channel.owner.playerID.characterName), DeathMsgColor, Config.DeathIconURL);
-                    if (Config.LocationMessage) Say(m_StringLocalizer["DEATH_CAUSES:LOCATION", victim.player.channel.owner.playerID.characterName, VictimLocation(victim.player)), LocationMsgColor, Config.LocationIconURL);
+                    if (m_Configuration.GetSection("Death_Causes:BoulderMessage").Get<bool>()) Say(m_StringLocalizer["DEATH_CAUSES:CAUSE_BOULDER", victim.player.channel.owner.playerID.characterName), DeathMsgColor, m_Configuration.GetSection("Death_Causes:DeathIconURL);
+                    if (m_Configuration.GetSection("Location:LocationMessage").Get<bool>()) Say(m_StringLocalizer["DEATH_CAUSES:LOCATION", victim.player.channel.owner.playerID.characterName, VictimLocation(victim.player)), LocationMsgColor, m_Configuration.GetSection("Death_Causes:LocationIconURL);
                     break;
                 case EDeathCause.BREATH:
-                    if (Config.BreathMessage) Say(m_StringLocalizer["DEATH_CAUSES:CAUSE_BREATH", victim.player.channel.owner.playerID.characterName), DeathMsgColor, Config.DeathIconURL);
-                    if (Config.LocationMessage) Say(m_StringLocalizer["DEATH_CAUSES:LOCATION", victim.player.channel.owner.playerID.characterName, VictimLocation(victim.player)), LocationMsgColor, Config.LocationIconURL);
+                    if (m_Configuration.GetSection("Death_Causes:BreathMessage").Get<bool>()) Say(m_StringLocalizer["DEATH_CAUSES:CAUSE_BREATH", victim.player.channel.owner.playerID.characterName), DeathMsgColor, m_Configuration.GetSection("Death_Causes:DeathIconURL);
+                    if (m_Configuration.GetSection("Location:LocationMessage").Get<bool>()) Say(m_StringLocalizer["DEATH_CAUSES:LOCATION", victim.player.channel.owner.playerID.characterName, VictimLocation(victim.player)), LocationMsgColor, m_Configuration.GetSection("Death_Causes:LocationIconURL);
                     break;
                 case EDeathCause.BURNER:
-                    if (Config.BurnerMessage) Say(m_StringLocalizer["DEATH_CAUSES:CAUSE_BURNER", victim.player.channel.owner.playerID.characterName), DeathMsgColor, Config.DeathIconURL);
-                    if (Config.LocationMessage) Say(m_StringLocalizer["DEATH_CAUSES:LOCATION", victim.player.channel.owner.playerID.characterName, VictimLocation(victim.player)), LocationMsgColor, Config.LocationIconURL);
+                    if (m_Configuration.GetSection("Death_Causes:BurnerMessage").Get<bool>()) Say(m_StringLocalizer["DEATH_CAUSES:CAUSE_BURNER", victim.player.channel.owner.playerID.characterName), DeathMsgColor, m_Configuration.GetSection("Death_Causes:DeathIconURL);
+                    if (m_Configuration.GetSection("Location:LocationMessage").Get<bool>()) Say(m_StringLocalizer["DEATH_CAUSES:LOCATION", victim.player.channel.owner.playerID.characterName, VictimLocation(victim.player)), LocationMsgColor, m_Configuration.GetSection("Death_Causes:LocationIconURL);
                     break;
                 case EDeathCause.BURNING:
-                    if (Config.BurningMessage) Say(m_StringLocalizer["DEATH_CAUSES:CAUSE_BURNING", victim.player.channel.owner.playerID.characterName), DeathMsgColor, Config.DeathIconURL);
-                    if (Config.LocationMessage) Say(m_StringLocalizer["DEATH_CAUSES:LOCATION", victim.player.channel.owner.playerID.characterName, VictimLocation(victim.player)), LocationMsgColor, Config.LocationIconURL);
+                    if (m_Configuration.GetSection("Death_Causes:BurningMessage").Get<bool>()) Say(m_StringLocalizer["DEATH_CAUSES:CAUSE_BURNING", victim.player.channel.owner.playerID.characterName), DeathMsgColor, m_Configuration.GetSection("Death_Causes:DeathIconURL);
+                    if (m_Configuration.GetSection("Location:LocationMessage").Get<bool>()) Say(m_StringLocalizer["DEATH_CAUSES:LOCATION", victim.player.channel.owner.playerID.characterName, VictimLocation(victim.player)), LocationMsgColor, m_Configuration.GetSection("Death_Causes:LocationIconURL);
                     break;
                 case EDeathCause.CHARGE:
-                    if (Config.ChargeMessage) Say(m_StringLocalizer["DEATH_CAUSES:CAUSE_CHARGE", victim.player.channel.owner.playerID.characterName, KillerName(killer), KillerHealth(killer), KillerDistance(victim.player, killer)), DeathMsgColor, Config.DeathIconURL);
-                    if (Config.LocationMessage) Say(m_StringLocalizer["DEATH_CAUSES:LOCATION", victim.player.channel.owner.playerID.characterName, VictimLocation(victim.player)), LocationMsgColor, Config.LocationIconURL);
+                    if (m_Configuration.GetSection("Death_Causes:ChargeMessage").Get<bool>()) Say(m_StringLocalizer["DEATH_CAUSES:CAUSE_CHARGE", victim.player.channel.owner.playerID.characterName, KillerName(killer), KillerHealth(killer), KillerDistance(victim.player, killer)), DeathMsgColor, m_Configuration.GetSection("Death_Causes:DeathIconURL);
+                    if (m_Configuration.GetSection("Location:LocationMessage").Get<bool>()) Say(m_StringLocalizer["DEATH_CAUSES:LOCATION", victim.player.channel.owner.playerID.characterName, VictimLocation(victim.player)), LocationMsgColor, m_Configuration.GetSection("Death_Causes:LocationIconURL);
                     break;
                 case EDeathCause.FOOD:
-                    if (Config.FoodMessage) Say(m_StringLocalizer["DEATH_CAUSES:CAUSE_FOOD", victim.player.channel.owner.playerID.characterName), DeathMsgColor, Config.DeathIconURL);
-                    if (Config.LocationMessage) Say(m_StringLocalizer["DEATH_CAUSES:LOCATION", victim.player.channel.owner.playerID.characterName, VictimLocation(victim.player)), LocationMsgColor, Config.LocationIconURL);
+                    if (m_Configuration.GetSection("Death_Causes:FoodMessage").Get<bool>()) Say(m_StringLocalizer["DEATH_CAUSES:CAUSE_FOOD", victim.player.channel.owner.playerID.characterName), DeathMsgColor, m_Configuration.GetSection("Death_Causes:DeathIconURL);
+                    if (m_Configuration.GetSection("Location:LocationMessage").Get<bool>()) Say(m_StringLocalizer["DEATH_CAUSES:LOCATION", victim.player.channel.owner.playerID.characterName, VictimLocation(victim.player)), LocationMsgColor, m_Configuration.GetSection("Death_Causes:LocationIconURL);
                     break;
                 case EDeathCause.FREEZING:
-                    if (Config.FreezingMessage) Say(m_StringLocalizer["DEATH_CAUSES:CAUSE_FREEZING", victim.player.channel.owner.playerID.characterName), DeathMsgColor, Config.DeathIconURL);
-                    if (Config.LocationMessage) Say(m_StringLocalizer["DEATH_CAUSES:LOCATION", victim.player.channel.owner.playerID.characterName, VictimLocation(victim.player)), LocationMsgColor, Config.LocationIconURL);
+                    if (m_Configuration.GetSection("Death_Causes:FreezingMessage").Get<bool>()) Say(m_StringLocalizer["DEATH_CAUSES:CAUSE_FREEZING", victim.player.channel.owner.playerID.characterName), DeathMsgColor, m_Configuration.GetSection("Death_Causes:DeathIconURL);
+                    if (m_Configuration.GetSection("Location:LocationMessage").Get<bool>()) Say(m_StringLocalizer["DEATH_CAUSES:LOCATION", victim.player.channel.owner.playerID.characterName, VictimLocation(victim.player)), LocationMsgColor, m_Configuration.GetSection("Death_Causes:LocationIconURL);
                     break;
                 case EDeathCause.GRENADE:
-                    if (Config.GrenadeMessage) Say(m_StringLocalizer["DEATH_CAUSES:CAUSE_GRENADE", victim.player.channel.owner.playerID.characterName, KillerName(killer), KillerHealth(killer), KillerDistance(victim.player, killer)), DeathMsgColor, Config.DeathIconURL);
-                    if (Config.LocationMessage) Say(m_StringLocalizer["DEATH_CAUSES:LOCATION", victim.player.channel.owner.playerID.characterName, VictimLocation(victim.player)), LocationMsgColor, Config.LocationIconURL);
+                    if (m_Configuration.GetSection("Death_Causes:GrenadeMessage").Get<bool>()) Say(m_StringLocalizer["DEATH_CAUSES:CAUSE_GRENADE", victim.player.channel.owner.playerID.characterName, KillerName(killer), KillerHealth(killer), KillerDistance(victim.player, killer)), DeathMsgColor, m_Configuration.GetSection("Death_Causes:DeathIconURL);
+                    if (m_Configuration.GetSection("Location:LocationMessage").Get<bool>()) Say(m_StringLocalizer["DEATH_CAUSES:LOCATION", victim.player.channel.owner.playerID.characterName, VictimLocation(victim.player)), LocationMsgColor, m_Configuration.GetSection("Death_Causes:LocationIconURL);
                     break;
                 case EDeathCause.GUN:
-                    if (Config.GunMessage) Say(m_StringLocalizer["DEATH_CAUSES:CAUSE_GUN", KillerName(killer), KillerHealth(killer), victim.player.channel.owner.playerID.characterName, VictimLimb(limb), KillerEquip(killer), KillerDistance(victim.player, killer)), DeathMsgColor, Config.DeathIconURL);
-                    if (Config.LocationMessage) Say(m_StringLocalizer["DEATH_CAUSES:LOCATION", victim.player.channel.owner.playerID.characterName, VictimLocation(victim.player)), LocationMsgColor, Config.LocationIconURL);
+                    if (m_Configuration.GetSection("Death_Causes:GunMessage").Get<bool>()) Say(m_StringLocalizer["DEATH_CAUSES:CAUSE_GUN", KillerName(killer), KillerHealth(killer), victim.player.channel.owner.playerID.characterName, VictimLimb(limb), KillerEquip(killer), KillerDistance(victim.player, killer)), DeathMsgColor, m_Configuration.GetSection("Death_Causes:DeathIconURL);
+                    if (m_Configuration.GetSection("Location:LocationMessage").Get<bool>()) Say(m_StringLocalizer["DEATH_CAUSES:LOCATION", victim.player.channel.owner.playerID.characterName, VictimLocation(victim.player)), LocationMsgColor, m_Configuration.GetSection("Death_Causes:LocationIconURL);
                     break;
                 case EDeathCause.INFECTION:
-                    if (Config.InfectionMessage) Say(m_StringLocalizer["DEATH_CAUSES:CAUSE_INFECTION", victim.player.channel.owner.playerID.characterName), DeathMsgColor, Config.DeathIconURL);
-                    if (Config.LocationMessage) Say(m_StringLocalizer["DEATH_CAUSES:LOCATION", victim.player.channel.owner.playerID.characterName, VictimLocation(victim.player)), LocationMsgColor, Config.LocationIconURL);
+                    if (m_Configuration.GetSection("Death_Causes:InfectionMessage").Get<bool>()) Say(m_StringLocalizer["DEATH_CAUSES:CAUSE_INFECTION", victim.player.channel.owner.playerID.characterName), DeathMsgColor, m_Configuration.GetSection("Death_Causes:DeathIconURL);
+                    if (m_Configuration.GetSection("Location:LocationMessage").Get<bool>()) Say(m_StringLocalizer["DEATH_CAUSES:LOCATION", victim.player.channel.owner.playerID.characterName, VictimLocation(victim.player)), LocationMsgColor, m_Configuration.GetSection("Death_Causes:LocationIconURL);
                     break;
                 case EDeathCause.KILL:
-                    if (Config.KillMessage) Say(m_StringLocalizer["DEATH_CAUSES:CAUSE_KILL", victim.player.channel.owner.playerID.characterName), DeathMsgColor, Config.DeathIconURL);
-                    if (Config.LocationMessage) Say(m_StringLocalizer["DEATH_CAUSES:LOCATION", victim.player.channel.owner.playerID.characterName, VictimLocation(victim.player)), LocationMsgColor, Config.LocationIconURL);
+                    if (m_Configuration.GetSection("Death_Causes:KillMessage").Get<bool>()) Say(m_StringLocalizer["DEATH_CAUSES:CAUSE_KILL", victim.player.channel.owner.playerID.characterName), DeathMsgColor, m_Configuration.GetSection("Death_Causes:DeathIconURL);
+                    if (m_Configuration.GetSection("Location:LocationMessage").Get<bool>()) Say(m_StringLocalizer["DEATH_CAUSES:LOCATION", victim.player.channel.owner.playerID.characterName, VictimLocation(victim.player)), LocationMsgColor, m_Configuration.GetSection("Death_Causes:LocationIconURL);
                     break;
                 case EDeathCause.LANDMINE:
-                    if (Config.LandmineMessage) Say(m_StringLocalizer["DEATH_CAUSES:CAUSE_LANDMINE", victim.player.channel.owner.playerID.characterName), DeathMsgColor, Config.DeathIconURL);
-                    if (Config.LocationMessage) Say(m_StringLocalizer["DEATH_CAUSES:LOCATION", victim.player.channel.owner.playerID.characterName, VictimLocation(victim.player)), LocationMsgColor, Config.LocationIconURL);
+                    if (m_Configuration.GetSection("Death_Causes:LandmineMessage").Get<bool>()) Say(m_StringLocalizer["DEATH_CAUSES:CAUSE_LANDMINE", victim.player.channel.owner.playerID.characterName), DeathMsgColor, m_Configuration.GetSection("Death_Causes:DeathIconURL);
+                    if (m_Configuration.GetSection("Location:LocationMessage").Get<bool>()) Say(m_StringLocalizer["DEATH_CAUSES:LOCATION", victim.player.channel.owner.playerID.characterName, VictimLocation(victim.player)), LocationMsgColor, m_Configuration.GetSection("Death_Causes:LocationIconURL);
                     break;
                 case EDeathCause.MELEE:
-                    if (Config.MeleeMessage) Say(m_StringLocalizer["DEATH_CAUSES:CAUSE_MELEE", KillerName(killer), KillerHealth(killer), victim.player.channel.owner.playerID.characterName, VictimLimb(limb), KillerEquip(killer), KillerDistance(victim.player, killer)), DeathMsgColor, Config.DeathIconURL);
-                    if (Config.LocationMessage) Say(m_StringLocalizer["DEATH_CAUSES:LOCATION", victim.player.channel.owner.playerID.characterName, VictimLocation(victim.player)), LocationMsgColor, Config.LocationIconURL);
+                    if (m_Configuration.GetSection("Death_Causes:MeleeMessage").Get<bool>()) Say(m_StringLocalizer["DEATH_CAUSES:CAUSE_MELEE", KillerName(killer), KillerHealth(killer), victim.player.channel.owner.playerID.characterName, VictimLimb(limb), KillerEquip(killer), KillerDistance(victim.player, killer)), DeathMsgColor, m_Configuration.GetSection("Death_Causes:DeathIconURL);
+                    if (m_Configuration.GetSection("Location:LocationMessage").Get<bool>()) Say(m_StringLocalizer["DEATH_CAUSES:LOCATION", victim.player.channel.owner.playerID.characterName, VictimLocation(victim.player)), LocationMsgColor, m_Configuration.GetSection("Death_Causes:LocationIconURL);
                     break;
                 case EDeathCause.MISSILE:
-                    if (Config.MissileMessage) Say(m_StringLocalizer["DEATH_CAUSES:CAUSE_MISSILE", victim.player.channel.owner.playerID.characterName, KillerName(killer), KillerHealth(killer), KillerDistance(victim.player, killer)), DeathMsgColor, Config.DeathIconURL);
-                    if (Config.LocationMessage) Say(m_StringLocalizer["DEATH_CAUSES:LOCATION", victim.player.channel.owner.playerID.characterName, VictimLocation(victim.player)), LocationMsgColor, Config.LocationIconURL);
+                    if (m_Configuration.GetSection("Death_Causes:MissileMessage").Get<bool>()) Say(m_StringLocalizer["DEATH_CAUSES:CAUSE_MISSILE", victim.player.channel.owner.playerID.characterName, KillerName(killer), KillerHealth(killer), KillerDistance(victim.player, killer)), DeathMsgColor, m_Configuration.GetSection("Death_Causes:DeathIconURL);
+                    if (m_Configuration.GetSection("Location:LocationMessage").Get<bool>()) Say(m_StringLocalizer["DEATH_CAUSES:LOCATION", victim.player.channel.owner.playerID.characterName, VictimLocation(victim.player)), LocationMsgColor, m_Configuration.GetSection("Death_Causes:LocationIconURL);
                     break;
                 case EDeathCause.PUNCH:
-                    if (Config.PunchMessage) Say(m_StringLocalizer["DEATH_CAUSES:CAUSE_PUNCH", KillerName(killer), KillerHealth(killer), victim.player.channel.owner.playerID.characterName, VictimLimb(limb)), DeathMsgColor, Config.DeathIconURL);
-                    if (Config.LocationMessage) Say(m_StringLocalizer["DEATH_CAUSES:LOCATION", victim.player.channel.owner.playerID.characterName, VictimLocation(victim.player)), LocationMsgColor, Config.LocationIconURL);
+                    if (m_Configuration.GetSection("Death_Causes:PunchMessage").Get<bool>()) Say(m_StringLocalizer["DEATH_CAUSES:CAUSE_PUNCH", KillerName(killer), KillerHealth(killer), victim.player.channel.owner.playerID.characterName, VictimLimb(limb)), DeathMsgColor, m_Configuration.GetSection("Death_Causes:DeathIconURL);
+                    if (m_Configuration.GetSection("Location:LocationMessage").Get<bool>()) Say(m_StringLocalizer["DEATH_CAUSES:LOCATION", victim.player.channel.owner.playerID.characterName, VictimLocation(victim.player)), LocationMsgColor, m_Configuration.GetSection("Death_Causes:LocationIconURL);
                     break;
                 case EDeathCause.ROADKILL:
-                    if (Config.RoadkillMessage) Say(m_StringLocalizer["DEATH_CAUSES:CAUSE_ROADKILL", victim.player.channel.owner.playerID.characterName, KillerName(killer), KillerHealth(killer)), DeathMsgColor, Config.DeathIconURL);
-                    if (Config.LocationMessage) Say(m_StringLocalizer["DEATH_CAUSES:LOCATION", victim.player.channel.owner.playerID.characterName, VictimLocation(victim.player)), LocationMsgColor, Config.LocationIconURL);
+                    if (m_Configuration.GetSection("Death_Causes:RoadkillMessage").Get<bool>()) Say(m_StringLocalizer["DEATH_CAUSES:CAUSE_ROADKILL", victim.player.channel.owner.playerID.characterName, KillerName(killer), KillerHealth(killer)), DeathMsgColor, m_Configuration.GetSection("Death_Causes:DeathIconURL);
+                    if (m_Configuration.GetSection("Location:LocationMessage").Get<bool>()) Say(m_StringLocalizer["DEATH_CAUSES:LOCATION", victim.player.channel.owner.playerID.characterName, VictimLocation(victim.player)), LocationMsgColor, m_Configuration.GetSection("Death_Causes:LocationIconURL);
                     break;
                 case EDeathCause.SENTRY:
-                    if (Config.SentryMessage) Say(m_StringLocalizer["DEATH_CAUSES:CAUSE_SENTRY", victim.player.channel.owner.playerID.characterName), DeathMsgColor, Config.DeathIconURL);
-                    if (Config.LocationMessage) Say(m_StringLocalizer["DEATH_CAUSES:LOCATION", victim.player.channel.owner.playerID.characterName, VictimLocation(victim.player)), LocationMsgColor, Config.LocationIconURL);
+                    if (m_Configuration.GetSection("Death_Causes:SentryMessage").Get<bool>()) Say(m_StringLocalizer["DEATH_CAUSES:CAUSE_SENTRY", victim.player.channel.owner.playerID.characterName), DeathMsgColor, m_Configuration.GetSection("Death_Causes:DeathIconURL);
+                    if (m_Configuration.GetSection("Location:LocationMessage").Get<bool>()) Say(m_StringLocalizer["DEATH_CAUSES:LOCATION", victim.player.channel.owner.playerID.characterName, VictimLocation(victim.player)), LocationMsgColor, m_Configuration.GetSection("Death_Causes:LocationIconURL);
                     break;
                 case EDeathCause.SHRED:
-                    if (Config.ShredMessage) Say(m_StringLocalizer["DEATH_CAUSES:CAUSE_SHRED", victim.player.channel.owner.playerID.characterName), DeathMsgColor, Config.DeathIconURL);
-                    if (Config.LocationMessage) Say(m_StringLocalizer["DEATH_CAUSES:LOCATION", victim.player.channel.owner.playerID.characterName, VictimLocation(victim.player)), LocationMsgColor, Config.LocationIconURL);
+                    if (m_Configuration.GetSection("Death_Causes:ShredMessage").Get<bool>()) Say(m_StringLocalizer["DEATH_CAUSES:CAUSE_SHRED", victim.player.channel.owner.playerID.characterName), DeathMsgColor, m_Configuration.GetSection("Death_Causes:DeathIconURL);
+                    if (m_Configuration.GetSection("Location:LocationMessage").Get<bool>()) Say(m_StringLocalizer["DEATH_CAUSES:LOCATION", victim.player.channel.owner.playerID.characterName, VictimLocation(victim.player)), LocationMsgColor, m_Configuration.GetSection("Death_Causes:LocationIconURL);
                     break;
                 case EDeathCause.SPARK:
-                    if (Config.SparkMessage) Say(m_StringLocalizer["DEATH_CAUSES:CAUSE_SPARK", victim.player.channel.owner.playerID.characterName), DeathMsgColor, Config.DeathIconURL);
-                    if (Config.LocationMessage) Say(m_StringLocalizer["DEATH_CAUSES:LOCATION", victim.player.channel.owner.playerID.characterName, VictimLocation(victim.player)), LocationMsgColor, Config.LocationIconURL);
+                    if (m_Configuration.GetSection("Death_Causes:SparkMessage").Get<bool>()) Say(m_StringLocalizer["DEATH_CAUSES:CAUSE_SPARK", victim.player.channel.owner.playerID.characterName), DeathMsgColor, m_Configuration.GetSection("Death_Causes:DeathIconURL);
+                    if (m_Configuration.GetSection("Location:LocationMessage").Get<bool>()) Say(m_StringLocalizer["DEATH_CAUSES:LOCATION", victim.player.channel.owner.playerID.characterName, VictimLocation(victim.player)), LocationMsgColor, m_Configuration.GetSection("Death_Causes:LocationIconURL);
                     break;
                 case EDeathCause.SPIT:
-                    if (Config.SpitMessage) Say(m_StringLocalizer["DEATH_CAUSES:CAUSE_SPIT", victim.player.channel.owner.playerID.characterName), DeathMsgColor, Config.DeathIconURL);
-                    if (Config.LocationMessage) Say(m_StringLocalizer["DEATH_CAUSES:LOCATION", victim.player.channel.owner.playerID.characterName, VictimLocation(victim.player)), LocationMsgColor, Config.LocationIconURL);
+                    if (m_Configuration.GetSection("Death_Causes:SpitMessage").Get<bool>()) Say(m_StringLocalizer["DEATH_CAUSES:CAUSE_SPIT", victim.player.channel.owner.playerID.characterName), DeathMsgColor, m_Configuration.GetSection("Death_Causes:DeathIconURL);
+                    if (m_Configuration.GetSection("Location:LocationMessage").Get<bool>()) Say(m_StringLocalizer["DEATH_CAUSES:LOCATION", victim.player.channel.owner.playerID.characterName, VictimLocation(victim.player)), LocationMsgColor, m_Configuration.GetSection("Death_Causes:LocationIconURL);
                     break;
                 case EDeathCause.SPLASH:
-                    if (Config.SplashMessage) Say(m_StringLocalizer["DEATH_CAUSES:CAUSE_SPLASH", victim.player.channel.owner.playerID.characterName, KillerName(killer), KillerHealth(killer), KillerDistance(victim.player, killer)), DeathMsgColor, Config.DeathIconURL);
-                    if (Config.LocationMessage) Say(m_StringLocalizer["DEATH_CAUSES:LOCATION", victim.player.channel.owner.playerID.characterName, VictimLocation(victim.player)), LocationMsgColor, Config.LocationIconURL);
+                    if (m_Configuration.GetSection("Death_Causes:SplashMessage").Get<bool>()) Say(m_StringLocalizer["DEATH_CAUSES:CAUSE_SPLASH", victim.player.channel.owner.playerID.characterName, KillerName(killer), KillerHealth(killer), KillerDistance(victim.player, killer)), DeathMsgColor, m_Configuration.GetSection("Death_Causes:DeathIconURL);
+                    if (m_Configuration.GetSection("Location:LocationMessage").Get<bool>()) Say(m_StringLocalizer["DEATH_CAUSES:LOCATION", victim.player.channel.owner.playerID.characterName, VictimLocation(victim.player)), LocationMsgColor, m_Configuration.GetSection("Death_Causes:LocationIconURL);
                     break;
                 case EDeathCause.SUICIDE:
-                    if (Config.SuicideMessage) Say(m_StringLocalizer["DEATH_CAUSES:CAUSE_SUICIDE", victim.player.channel.owner.playerID.characterName), DeathMsgColor, Config.DeathIconURL);
-                    if (Config.LocationMessage) Say(m_StringLocalizer["DEATH_CAUSES:LOCATION", victim.player.channel.owner.playerID.characterName, VictimLocation(victim.player)), LocationMsgColor, Config.LocationIconURL);
+                    if (m_Configuration.GetSection("Death_Causes:SuicideMessage").Get<bool>()) Say(m_StringLocalizer["DEATH_CAUSES:CAUSE_SUICIDE", victim.player.channel.owner.playerID.characterName), DeathMsgColor, m_Configuration.GetSection("Death_Causes:DeathIconURL);
+                    if (m_Configuration.GetSection("Location:LocationMessage").Get<bool>()) Say(m_StringLocalizer["DEATH_CAUSES:LOCATION", victim.player.channel.owner.playerID.characterName, VictimLocation(victim.player)), LocationMsgColor, m_Configuration.GetSection("Death_Causes:LocationIconURL);
                     break;
                 case EDeathCause.VEHICLE:
-                    if (Config.VehicleMessage) Say(m_StringLocalizer["DEATH_CAUSES:CAUSE_VEHICLE", victim.player.channel.owner.playerID.characterName), DeathMsgColor, Config.DeathIconURL);
-                    if (Config.LocationMessage) Say(m_StringLocalizer["DEATH_CAUSES:LOCATION", victim.player.channel.owner.playerID.characterName, VictimLocation(victim.player)), LocationMsgColor, Config.LocationIconURL);
+                    if (m_Configuration.GetSection("Death_Causes:VehicleMessage").Get<bool>()) Say(m_StringLocalizer["DEATH_CAUSES:CAUSE_VEHICLE", victim.player.channel.owner.playerID.characterName), DeathMsgColor, m_Configuration.GetSection("Death_Causes:DeathIconURL);
+                    if (m_Configuration.GetSection("Location:LocationMessage").Get<bool>()) Say(m_StringLocalizer["DEATH_CAUSES:LOCATION", victim.player.channel.owner.playerID.characterName, VictimLocation(victim.player)), LocationMsgColor, m_Configuration.GetSection("Death_Causes:LocationIconURL);
                     break;
                 case EDeathCause.WATER:
-                    if (Config.WaterMessage) Say(m_StringLocalizer["DEATH_CAUSES:CAUSE_WATER", victim.player.channel.owner.playerID.characterName), DeathMsgColor, Config.DeathIconURL);
-                    if (Config.LocationMessage) Say(m_StringLocalizer["DEATH_CAUSES:LOCATION", victim.player.channel.owner.playerID.characterName, VictimLocation(victim.player)), LocationMsgColor, Config.LocationIconURL);
+                    if (m_Configuration.GetSection("Death_Causes:WaterMessage").Get<bool>()) Say(m_StringLocalizer["DEATH_CAUSES:CAUSE_WATER", victim.player.channel.owner.playerID.characterName), DeathMsgColor, m_Configuration.GetSection("Death_Causes:DeathIconURL);
+                    if (m_Configuration.GetSection("Location:LocationMessage").Get<bool>()) Say(m_StringLocalizer["DEATH_CAUSES:LOCATION", victim.player.channel.owner.playerID.characterName, VictimLocation(victim.player)), LocationMsgColor, m_Configuration.GetSection("Death_Causes:LocationIconURL);
                     break;
                 case EDeathCause.ZOMBIE:
-                    if (Config.ZombieMessage) Say(m_StringLocalizer["DEATH_CAUSES:CAUSE_ZOMBIE", victim.player.channel.owner.playerID.characterName), DeathMsgColor, Config.DeathIconURL);
-                    if (Config.LocationMessage) Say(m_StringLocalizer["DEATH_CAUSES:LOCATION", victim.player.channel.owner.playerID.characterName, VictimLocation(victim.player)), LocationMsgColor, Config.LocationIconURL);
+                    if (m_Configuration.GetSection("Death_Causes:ZombieMessage").Get<bool>()) Say(m_StringLocalizer["DEATH_CAUSES:CAUSE_ZOMBIE", victim.player.channel.owner.playerID.characterName), DeathMsgColor, m_Configuration.GetSection("Death_Causes:DeathIconURL);
+                    if (m_Configuration.GetSection("Location:LocationMessage").Get<bool>()) Say(m_StringLocalizer["DEATH_CAUSES:LOCATION", victim.player.channel.owner.playerID.characterName, VictimLocation(victim.player)), LocationMsgColor, m_Configuration.GetSection("Death_Causes:LocationIconURL);
                     break;
                 default:
                     Logger.LogError("Error. Please contact nelson!");
                     break;
             }
+
             await UniTask.SwitchToThreadPool();
         }
         public string KillerDistance(Player victim, CSteamID killer)
@@ -241,24 +244,24 @@ namespace DeathMessenger
         {
             var location = "Unknown";
             //Vector3 tempLocation = new Vector3(float.MaxValue, float.MaxValue, float.MaxValue);
-            float tempDistance = float.MaxValue;
-            LevelInfo info = Level.info;
-            Local local = info?.getLocalization();
-            for (int i = 0; i < LevelNodes.nodes.Count; i++)
+            var tempDistance = float.MaxValue;
+            var info = Level.info;
+            var local = info?.getLocalization();
+            for (var i = 0; i < LevelNodes.nodes.Count; i++)
             {
-                Node node = LevelNodes.nodes[i];
-                if (node.type == ENodeType.DEATH_CAUSES:LOCATION)
+                var node = LevelNodes.nodes[i];
+                if (node.type == ENodeType.LOCATION)
                 {
-                    LocationNode locationNode = node as LocationNode;
+                    var locationNode = node as LocationNode;
                     var distance = Vector3.Distance(locationNode.point, victim.transform.position);
                     if (distance < tempDistance)
                     {
                         //tempLocation = locationNode.point;
                         tempDistance = distance;
-                        string text = locationNode?.name;
+                        var text = locationNode?.name;
                         if (!string.IsNullOrEmpty(text))
                         {
-                            string key = text.Replace(' ', '_');
+                            var key = text.Replace(' ', '_');
                             if (local != null && local.has(key))
                             {
                                 text = local.format(key);
@@ -273,10 +276,10 @@ namespace DeathMessenger
         public List<string> WrapMessage(string text)
         {
             if (text.Length == 0) return new List<string>();
-            string[] words = text.Split(' ');
-            List<string> lines = new List<string>();
-            string currentLine = "";
-            int maxLength = 250;
+            var words = text.Split(' ');
+            var lines = new List<string>();
+            var currentLine = "";
+            var maxLength = 250;
             foreach (var currentWord in words)
             {
 
@@ -302,8 +305,8 @@ namespace DeathMessenger
         }
         public void Say(CSteamID CSteamID, string message, Color color, string imageURL)
         {
-            SteamPlayer toPlayer = PlayerTool.getSteamPlayer(CSteamID);
-            foreach (string m in WrapMessage(message))
+            var toPlayer = PlayerTool.getSteamPlayer(CSteamID);
+            foreach (var m in WrapMessage(message))
             {
                 ChatManager.serverSendMessage(m, color, fromPlayer: null, toPlayer: toPlayer, mode: EChatMode.SAY, iconURL: imageURL, useRichTextFormatting: true);
             }
@@ -314,7 +317,7 @@ namespace DeathMessenger
         }
         public void Say(string message, Color color, string imageURL)
         {
-            foreach (string m in WrapMessage(message))
+            foreach (var m in WrapMessage(message))
             {
                 ChatManager.serverSendMessage(m, color, fromPlayer: null, toPlayer: null, mode: EChatMode.GLOBAL, iconURL: imageURL, useRichTextFormatting: true);
             }
