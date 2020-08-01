@@ -88,124 +88,124 @@ namespace Tortellio.DeathMessenger
             switch (cause)
             {
                 case EDeathCause.ACID:
-                    if (Config.AcidMessage) Say(Translate("CAUSE_ACID", victim.player.channel.owner.playerID.characterName), DeathMsgColor, Config.DeathIconURL);
-                    if (Config.LocationMessage) Say(Translate("LOCATION", victim.player.channel.owner.playerID.characterName, VictimLocation(victim.player)), LocationMsgColor, Config.LocationIconURL);
+                    if (Config.AcidMessage) Say(m_StringLocalizer["CAUSE_ACID", victim.player.channel.owner.playerID.characterName), DeathMsgColor, Config.DeathIconURL);
+                    if (Config.LocationMessage) Say(m_StringLocalizer["LOCATION", victim.player.channel.owner.playerID.characterName, VictimLocation(victim.player)), LocationMsgColor, Config.LocationIconURL);
                     break;
                 case EDeathCause.ANIMAL:
-                    if (Config.AnimalMessage) Say(Translate("CAUSE_ANIMAL", victim.player.channel.owner.playerID.characterName), DeathMsgColor, Config.DeathIconURL);
-                    if (Config.LocationMessage) Say(Translate("LOCATION", victim.player.channel.owner.playerID.characterName, VictimLocation(victim.player)), LocationMsgColor, Config.LocationIconURL);
+                    if (Config.AnimalMessage) Say(m_StringLocalizer["CAUSE_ANIMAL", victim.player.channel.owner.playerID.characterName), DeathMsgColor, Config.DeathIconURL);
+                    if (Config.LocationMessage) Say(m_StringLocalizer["LOCATION", victim.player.channel.owner.playerID.characterName, VictimLocation(victim.player)), LocationMsgColor, Config.LocationIconURL);
                     break;
                 case EDeathCause.ARENA:
-                    if (Config.ArenaMessage) Say(Translate("CAUSE_ARENA", victim.player.channel.owner.playerID.characterName), DeathMsgColor, Config.DeathIconURL);
-                    if (Config.LocationMessage) Say(Translate("LOCATION", victim.player.channel.owner.playerID.characterName, VictimLocation(victim.player)), LocationMsgColor, Config.LocationIconURL);
+                    if (Config.ArenaMessage) Say(m_StringLocalizer["CAUSE_ARENA", victim.player.channel.owner.playerID.characterName), DeathMsgColor, Config.DeathIconURL);
+                    if (Config.LocationMessage) Say(m_StringLocalizer["LOCATION", victim.player.channel.owner.playerID.characterName, VictimLocation(victim.player)), LocationMsgColor, Config.LocationIconURL);
                     break;
                 case EDeathCause.BLEEDING:
-                    if (Config.BleedingMessage) Say(Translate("CAUSE_BLEEDING", victim.player.channel.owner.playerID.characterName), DeathMsgColor, Config.DeathIconURL);
-                    if (Config.LocationMessage) Say(Translate("LOCATION", victim.player.channel.owner.playerID.characterName, VictimLocation(victim.player)), LocationMsgColor, Config.LocationIconURL);
+                    if (Config.BleedingMessage) Say(m_StringLocalizer["CAUSE_BLEEDING", victim.player.channel.owner.playerID.characterName), DeathMsgColor, Config.DeathIconURL);
+                    if (Config.LocationMessage) Say(m_StringLocalizer["LOCATION", victim.player.channel.owner.playerID.characterName, VictimLocation(victim.player)), LocationMsgColor, Config.LocationIconURL);
                     break;
                 case EDeathCause.BONES:
-                    if (Config.BonesMessage) Say(Translate("CAUSE_BONES", victim.player.channel.owner.playerID.characterName), DeathMsgColor, Config.DeathIconURL);
-                    if (Config.LocationMessage) Say(Translate("LOCATION", victim.player.channel.owner.playerID.characterName, VictimLocation(victim.player)), LocationMsgColor, Config.LocationIconURL);
+                    if (Config.BonesMessage) Say(m_StringLocalizer["CAUSE_BONES", victim.player.channel.owner.playerID.characterName), DeathMsgColor, Config.DeathIconURL);
+                    if (Config.LocationMessage) Say(m_StringLocalizer["LOCATION", victim.player.channel.owner.playerID.characterName, VictimLocation(victim.player)), LocationMsgColor, Config.LocationIconURL);
                     break;
                 case EDeathCause.BOULDER:
-                    if (Config.BoulderMessage) Say(Translate("CAUSE_BOULDER", victim.player.channel.owner.playerID.characterName), DeathMsgColor, Config.DeathIconURL);
-                    if (Config.LocationMessage) Say(Translate("LOCATION", victim.player.channel.owner.playerID.characterName, VictimLocation(victim.player)), LocationMsgColor, Config.LocationIconURL);
+                    if (Config.BoulderMessage) Say(m_StringLocalizer["CAUSE_BOULDER", victim.player.channel.owner.playerID.characterName), DeathMsgColor, Config.DeathIconURL);
+                    if (Config.LocationMessage) Say(m_StringLocalizer["LOCATION", victim.player.channel.owner.playerID.characterName, VictimLocation(victim.player)), LocationMsgColor, Config.LocationIconURL);
                     break;
                 case EDeathCause.BREATH:
-                    if (Config.BreathMessage) Say(Translate("CAUSE_BREATH", victim.player.channel.owner.playerID.characterName), DeathMsgColor, Config.DeathIconURL);
-                    if (Config.LocationMessage) Say(Translate("LOCATION", victim.player.channel.owner.playerID.characterName, VictimLocation(victim.player)), LocationMsgColor, Config.LocationIconURL);
+                    if (Config.BreathMessage) Say(m_StringLocalizer["CAUSE_BREATH", victim.player.channel.owner.playerID.characterName), DeathMsgColor, Config.DeathIconURL);
+                    if (Config.LocationMessage) Say(m_StringLocalizer["LOCATION", victim.player.channel.owner.playerID.characterName, VictimLocation(victim.player)), LocationMsgColor, Config.LocationIconURL);
                     break;
                 case EDeathCause.BURNER:
-                    if (Config.BurnerMessage) Say(Translate("CAUSE_BURNER", victim.player.channel.owner.playerID.characterName), DeathMsgColor, Config.DeathIconURL);
-                    if (Config.LocationMessage) Say(Translate("LOCATION", victim.player.channel.owner.playerID.characterName, VictimLocation(victim.player)), LocationMsgColor, Config.LocationIconURL);
+                    if (Config.BurnerMessage) Say(m_StringLocalizer["CAUSE_BURNER", victim.player.channel.owner.playerID.characterName), DeathMsgColor, Config.DeathIconURL);
+                    if (Config.LocationMessage) Say(m_StringLocalizer["LOCATION", victim.player.channel.owner.playerID.characterName, VictimLocation(victim.player)), LocationMsgColor, Config.LocationIconURL);
                     break;
                 case EDeathCause.BURNING:
-                    if (Config.BurningMessage) Say(Translate("CAUSE_BURNING", victim.player.channel.owner.playerID.characterName), DeathMsgColor, Config.DeathIconURL);
-                    if (Config.LocationMessage) Say(Translate("LOCATION", victim.player.channel.owner.playerID.characterName, VictimLocation(victim.player)), LocationMsgColor, Config.LocationIconURL);
+                    if (Config.BurningMessage) Say(m_StringLocalizer["CAUSE_BURNING", victim.player.channel.owner.playerID.characterName), DeathMsgColor, Config.DeathIconURL);
+                    if (Config.LocationMessage) Say(m_StringLocalizer["LOCATION", victim.player.channel.owner.playerID.characterName, VictimLocation(victim.player)), LocationMsgColor, Config.LocationIconURL);
                     break;
                 case EDeathCause.CHARGE:
-                    if (Config.ChargeMessage) Say(Translate("CAUSE_CHARGE", victim.player.channel.owner.playerID.characterName, KillerName(killer), KillerHealth(killer), KillerDistance(victim.player, killer)), DeathMsgColor, Config.DeathIconURL);
-                    if (Config.LocationMessage) Say(Translate("LOCATION", victim.player.channel.owner.playerID.characterName, VictimLocation(victim.player)), LocationMsgColor, Config.LocationIconURL);
+                    if (Config.ChargeMessage) Say(m_StringLocalizer["CAUSE_CHARGE", victim.player.channel.owner.playerID.characterName, KillerName(killer), KillerHealth(killer), KillerDistance(victim.player, killer)), DeathMsgColor, Config.DeathIconURL);
+                    if (Config.LocationMessage) Say(m_StringLocalizer["LOCATION", victim.player.channel.owner.playerID.characterName, VictimLocation(victim.player)), LocationMsgColor, Config.LocationIconURL);
                     break;
                 case EDeathCause.FOOD:
-                    if (Config.FoodMessage) Say(Translate("CAUSE_FOOD", victim.player.channel.owner.playerID.characterName), DeathMsgColor, Config.DeathIconURL);
-                    if (Config.LocationMessage) Say(Translate("LOCATION", victim.player.channel.owner.playerID.characterName, VictimLocation(victim.player)), LocationMsgColor, Config.LocationIconURL);
+                    if (Config.FoodMessage) Say(m_StringLocalizer["CAUSE_FOOD", victim.player.channel.owner.playerID.characterName), DeathMsgColor, Config.DeathIconURL);
+                    if (Config.LocationMessage) Say(m_StringLocalizer["LOCATION", victim.player.channel.owner.playerID.characterName, VictimLocation(victim.player)), LocationMsgColor, Config.LocationIconURL);
                     break;
                 case EDeathCause.FREEZING:
-                    if (Config.FreezingMessage) Say(Translate("CAUSE_FREEZING", victim.player.channel.owner.playerID.characterName), DeathMsgColor, Config.DeathIconURL);
-                    if (Config.LocationMessage) Say(Translate("LOCATION", victim.player.channel.owner.playerID.characterName, VictimLocation(victim.player)), LocationMsgColor, Config.LocationIconURL);
+                    if (Config.FreezingMessage) Say(m_StringLocalizer["CAUSE_FREEZING", victim.player.channel.owner.playerID.characterName), DeathMsgColor, Config.DeathIconURL);
+                    if (Config.LocationMessage) Say(m_StringLocalizer["LOCATION", victim.player.channel.owner.playerID.characterName, VictimLocation(victim.player)), LocationMsgColor, Config.LocationIconURL);
                     break;
                 case EDeathCause.GRENADE:
-                    if (Config.GrenadeMessage) Say(Translate("CAUSE_GRENADE", victim.player.channel.owner.playerID.characterName, KillerName(killer), KillerHealth(killer), KillerDistance(victim.player, killer)), DeathMsgColor, Config.DeathIconURL);
-                    if (Config.LocationMessage) Say(Translate("LOCATION", victim.player.channel.owner.playerID.characterName, VictimLocation(victim.player)), LocationMsgColor, Config.LocationIconURL);
+                    if (Config.GrenadeMessage) Say(m_StringLocalizer["CAUSE_GRENADE", victim.player.channel.owner.playerID.characterName, KillerName(killer), KillerHealth(killer), KillerDistance(victim.player, killer)), DeathMsgColor, Config.DeathIconURL);
+                    if (Config.LocationMessage) Say(m_StringLocalizer["LOCATION", victim.player.channel.owner.playerID.characterName, VictimLocation(victim.player)), LocationMsgColor, Config.LocationIconURL);
                     break;
                 case EDeathCause.GUN:
-                    if (Config.GunMessage) Say(Translate("CAUSE_GUN", KillerName(killer), KillerHealth(killer), victim.player.channel.owner.playerID.characterName, VictimLimb(limb), KillerEquip(killer), KillerDistance(victim.player, killer)), DeathMsgColor, Config.DeathIconURL);
-                    if (Config.LocationMessage) Say(Translate("LOCATION", victim.player.channel.owner.playerID.characterName, VictimLocation(victim.player)), LocationMsgColor, Config.LocationIconURL);
+                    if (Config.GunMessage) Say(m_StringLocalizer["CAUSE_GUN", KillerName(killer), KillerHealth(killer), victim.player.channel.owner.playerID.characterName, VictimLimb(limb), KillerEquip(killer), KillerDistance(victim.player, killer)), DeathMsgColor, Config.DeathIconURL);
+                    if (Config.LocationMessage) Say(m_StringLocalizer["LOCATION", victim.player.channel.owner.playerID.characterName, VictimLocation(victim.player)), LocationMsgColor, Config.LocationIconURL);
                     break;
                 case EDeathCause.INFECTION:
-                    if (Config.InfectionMessage) Say(Translate("CAUSE_INFECTION", victim.player.channel.owner.playerID.characterName), DeathMsgColor, Config.DeathIconURL);
-                    if (Config.LocationMessage) Say(Translate("LOCATION", victim.player.channel.owner.playerID.characterName, VictimLocation(victim.player)), LocationMsgColor, Config.LocationIconURL);
+                    if (Config.InfectionMessage) Say(m_StringLocalizer["CAUSE_INFECTION", victim.player.channel.owner.playerID.characterName), DeathMsgColor, Config.DeathIconURL);
+                    if (Config.LocationMessage) Say(m_StringLocalizer["LOCATION", victim.player.channel.owner.playerID.characterName, VictimLocation(victim.player)), LocationMsgColor, Config.LocationIconURL);
                     break;
                 case EDeathCause.KILL:
-                    if (Config.KillMessage) Say(Translate("CAUSE_KILL", victim.player.channel.owner.playerID.characterName), DeathMsgColor, Config.DeathIconURL);
-                    if (Config.LocationMessage) Say(Translate("LOCATION", victim.player.channel.owner.playerID.characterName, VictimLocation(victim.player)), LocationMsgColor, Config.LocationIconURL);
+                    if (Config.KillMessage) Say(m_StringLocalizer["CAUSE_KILL", victim.player.channel.owner.playerID.characterName), DeathMsgColor, Config.DeathIconURL);
+                    if (Config.LocationMessage) Say(m_StringLocalizer["LOCATION", victim.player.channel.owner.playerID.characterName, VictimLocation(victim.player)), LocationMsgColor, Config.LocationIconURL);
                     break;
                 case EDeathCause.LANDMINE:
-                    if (Config.LandmineMessage) Say(Translate("CAUSE_LANDMINE", victim.player.channel.owner.playerID.characterName), DeathMsgColor, Config.DeathIconURL);
-                    if (Config.LocationMessage) Say(Translate("LOCATION", victim.player.channel.owner.playerID.characterName, VictimLocation(victim.player)), LocationMsgColor, Config.LocationIconURL);
+                    if (Config.LandmineMessage) Say(m_StringLocalizer["CAUSE_LANDMINE", victim.player.channel.owner.playerID.characterName), DeathMsgColor, Config.DeathIconURL);
+                    if (Config.LocationMessage) Say(m_StringLocalizer["LOCATION", victim.player.channel.owner.playerID.characterName, VictimLocation(victim.player)), LocationMsgColor, Config.LocationIconURL);
                     break;
                 case EDeathCause.MELEE:
-                    if (Config.MeleeMessage) Say(Translate("CAUSE_MELEE", KillerName(killer), KillerHealth(killer), victim.player.channel.owner.playerID.characterName, VictimLimb(limb), KillerEquip(killer), KillerDistance(victim.player, killer)), DeathMsgColor, Config.DeathIconURL);
-                    if (Config.LocationMessage) Say(Translate("LOCATION", victim.player.channel.owner.playerID.characterName, VictimLocation(victim.player)), LocationMsgColor, Config.LocationIconURL);
+                    if (Config.MeleeMessage) Say(m_StringLocalizer["CAUSE_MELEE", KillerName(killer), KillerHealth(killer), victim.player.channel.owner.playerID.characterName, VictimLimb(limb), KillerEquip(killer), KillerDistance(victim.player, killer)), DeathMsgColor, Config.DeathIconURL);
+                    if (Config.LocationMessage) Say(m_StringLocalizer["LOCATION", victim.player.channel.owner.playerID.characterName, VictimLocation(victim.player)), LocationMsgColor, Config.LocationIconURL);
                     break;
                 case EDeathCause.MISSILE:
-                    if (Config.MissileMessage) Say(Translate("CAUSE_MISSILE", victim.player.channel.owner.playerID.characterName, KillerName(killer), KillerHealth(killer), KillerDistance(victim.player, killer)), DeathMsgColor, Config.DeathIconURL);
-                    if (Config.LocationMessage) Say(Translate("LOCATION", victim.player.channel.owner.playerID.characterName, VictimLocation(victim.player)), LocationMsgColor, Config.LocationIconURL);
+                    if (Config.MissileMessage) Say(m_StringLocalizer["CAUSE_MISSILE", victim.player.channel.owner.playerID.characterName, KillerName(killer), KillerHealth(killer), KillerDistance(victim.player, killer)), DeathMsgColor, Config.DeathIconURL);
+                    if (Config.LocationMessage) Say(m_StringLocalizer["LOCATION", victim.player.channel.owner.playerID.characterName, VictimLocation(victim.player)), LocationMsgColor, Config.LocationIconURL);
                     break;
                 case EDeathCause.PUNCH:
-                    if (Config.PunchMessage) Say(Translate("CAUSE_PUNCH", KillerName(killer), KillerHealth(killer), victim.player.channel.owner.playerID.characterName, VictimLimb(limb)), DeathMsgColor, Config.DeathIconURL);
-                    if (Config.LocationMessage) Say(Translate("LOCATION", victim.player.channel.owner.playerID.characterName, VictimLocation(victim.player)), LocationMsgColor, Config.LocationIconURL);
+                    if (Config.PunchMessage) Say(m_StringLocalizer["CAUSE_PUNCH", KillerName(killer), KillerHealth(killer), victim.player.channel.owner.playerID.characterName, VictimLimb(limb)), DeathMsgColor, Config.DeathIconURL);
+                    if (Config.LocationMessage) Say(m_StringLocalizer["LOCATION", victim.player.channel.owner.playerID.characterName, VictimLocation(victim.player)), LocationMsgColor, Config.LocationIconURL);
                     break;
                 case EDeathCause.ROADKILL:
-                    if (Config.RoadkillMessage) Say(Translate("CAUSE_ROADKILL", victim.player.channel.owner.playerID.characterName, KillerName(killer), KillerHealth(killer)), DeathMsgColor, Config.DeathIconURL);
-                    if (Config.LocationMessage) Say(Translate("LOCATION", victim.player.channel.owner.playerID.characterName, VictimLocation(victim.player)), LocationMsgColor, Config.LocationIconURL);
+                    if (Config.RoadkillMessage) Say(m_StringLocalizer["CAUSE_ROADKILL", victim.player.channel.owner.playerID.characterName, KillerName(killer), KillerHealth(killer)), DeathMsgColor, Config.DeathIconURL);
+                    if (Config.LocationMessage) Say(m_StringLocalizer["LOCATION", victim.player.channel.owner.playerID.characterName, VictimLocation(victim.player)), LocationMsgColor, Config.LocationIconURL);
                     break;
                 case EDeathCause.SENTRY:
-                    if (Config.SentryMessage) Say(Translate("CAUSE_SENTRY", victim.player.channel.owner.playerID.characterName), DeathMsgColor, Config.DeathIconURL);
-                    if (Config.LocationMessage) Say(Translate("LOCATION", victim.player.channel.owner.playerID.characterName, VictimLocation(victim.player)), LocationMsgColor, Config.LocationIconURL);
+                    if (Config.SentryMessage) Say(m_StringLocalizer["CAUSE_SENTRY", victim.player.channel.owner.playerID.characterName), DeathMsgColor, Config.DeathIconURL);
+                    if (Config.LocationMessage) Say(m_StringLocalizer["LOCATION", victim.player.channel.owner.playerID.characterName, VictimLocation(victim.player)), LocationMsgColor, Config.LocationIconURL);
                     break;
                 case EDeathCause.SHRED:
-                    if (Config.ShredMessage) Say(Translate("CAUSE_SHRED", victim.player.channel.owner.playerID.characterName), DeathMsgColor, Config.DeathIconURL);
-                    if (Config.LocationMessage) Say(Translate("LOCATION", victim.player.channel.owner.playerID.characterName, VictimLocation(victim.player)), LocationMsgColor, Config.LocationIconURL);
+                    if (Config.ShredMessage) Say(m_StringLocalizer["CAUSE_SHRED", victim.player.channel.owner.playerID.characterName), DeathMsgColor, Config.DeathIconURL);
+                    if (Config.LocationMessage) Say(m_StringLocalizer["LOCATION", victim.player.channel.owner.playerID.characterName, VictimLocation(victim.player)), LocationMsgColor, Config.LocationIconURL);
                     break;
                 case EDeathCause.SPARK:
-                    if (Config.SparkMessage) Say(Translate("CAUSE_SPARK", victim.player.channel.owner.playerID.characterName), DeathMsgColor, Config.DeathIconURL);
-                    if (Config.LocationMessage) Say(Translate("LOCATION", victim.player.channel.owner.playerID.characterName, VictimLocation(victim.player)), LocationMsgColor, Config.LocationIconURL);
+                    if (Config.SparkMessage) Say(m_StringLocalizer["CAUSE_SPARK", victim.player.channel.owner.playerID.characterName), DeathMsgColor, Config.DeathIconURL);
+                    if (Config.LocationMessage) Say(m_StringLocalizer["LOCATION", victim.player.channel.owner.playerID.characterName, VictimLocation(victim.player)), LocationMsgColor, Config.LocationIconURL);
                     break;
                 case EDeathCause.SPIT:
-                    if (Config.SpitMessage) Say(Translate("CAUSE_SPIT", victim.player.channel.owner.playerID.characterName), DeathMsgColor, Config.DeathIconURL);
-                    if (Config.LocationMessage) Say(Translate("LOCATION", victim.player.channel.owner.playerID.characterName, VictimLocation(victim.player)), LocationMsgColor, Config.LocationIconURL);
+                    if (Config.SpitMessage) Say(m_StringLocalizer["CAUSE_SPIT", victim.player.channel.owner.playerID.characterName), DeathMsgColor, Config.DeathIconURL);
+                    if (Config.LocationMessage) Say(m_StringLocalizer["LOCATION", victim.player.channel.owner.playerID.characterName, VictimLocation(victim.player)), LocationMsgColor, Config.LocationIconURL);
                     break;
                 case EDeathCause.SPLASH:
-                    if (Config.SplashMessage) Say(Translate("CAUSE_SPLASH", victim.player.channel.owner.playerID.characterName, KillerName(killer), KillerHealth(killer), KillerDistance(victim.player, killer)), DeathMsgColor, Config.DeathIconURL);
-                    if (Config.LocationMessage) Say(Translate("LOCATION", victim.player.channel.owner.playerID.characterName, VictimLocation(victim.player)), LocationMsgColor, Config.LocationIconURL);
+                    if (Config.SplashMessage) Say(m_StringLocalizer["CAUSE_SPLASH", victim.player.channel.owner.playerID.characterName, KillerName(killer), KillerHealth(killer), KillerDistance(victim.player, killer)), DeathMsgColor, Config.DeathIconURL);
+                    if (Config.LocationMessage) Say(m_StringLocalizer["LOCATION", victim.player.channel.owner.playerID.characterName, VictimLocation(victim.player)), LocationMsgColor, Config.LocationIconURL);
                     break;
                 case EDeathCause.SUICIDE:
-                    if (Config.SuicideMessage) Say(Translate("CAUSE_SUICIDE", victim.player.channel.owner.playerID.characterName), DeathMsgColor, Config.DeathIconURL);
-                    if (Config.LocationMessage) Say(Translate("LOCATION", victim.player.channel.owner.playerID.characterName, VictimLocation(victim.player)), LocationMsgColor, Config.LocationIconURL);
+                    if (Config.SuicideMessage) Say(m_StringLocalizer["CAUSE_SUICIDE", victim.player.channel.owner.playerID.characterName), DeathMsgColor, Config.DeathIconURL);
+                    if (Config.LocationMessage) Say(m_StringLocalizer["LOCATION", victim.player.channel.owner.playerID.characterName, VictimLocation(victim.player)), LocationMsgColor, Config.LocationIconURL);
                     break;
                 case EDeathCause.VEHICLE:
-                    if (Config.VehicleMessage) Say(Translate("CAUSE_VEHICLE", victim.player.channel.owner.playerID.characterName), DeathMsgColor, Config.DeathIconURL);
-                    if (Config.LocationMessage) Say(Translate("LOCATION", victim.player.channel.owner.playerID.characterName, VictimLocation(victim.player)), LocationMsgColor, Config.LocationIconURL);
+                    if (Config.VehicleMessage) Say(m_StringLocalizer["CAUSE_VEHICLE", victim.player.channel.owner.playerID.characterName), DeathMsgColor, Config.DeathIconURL);
+                    if (Config.LocationMessage) Say(m_StringLocalizer["LOCATION", victim.player.channel.owner.playerID.characterName, VictimLocation(victim.player)), LocationMsgColor, Config.LocationIconURL);
                     break;
                 case EDeathCause.WATER:
-                    if (Config.WaterMessage) Say(Translate("CAUSE_WATER", victim.player.channel.owner.playerID.characterName), DeathMsgColor, Config.DeathIconURL);
-                    if (Config.LocationMessage) Say(Translate("LOCATION", victim.player.channel.owner.playerID.characterName, VictimLocation(victim.player)), LocationMsgColor, Config.LocationIconURL);
+                    if (Config.WaterMessage) Say(m_StringLocalizer["CAUSE_WATER", victim.player.channel.owner.playerID.characterName), DeathMsgColor, Config.DeathIconURL);
+                    if (Config.LocationMessage) Say(m_StringLocalizer["LOCATION", victim.player.channel.owner.playerID.characterName, VictimLocation(victim.player)), LocationMsgColor, Config.LocationIconURL);
                     break;
                 case EDeathCause.ZOMBIE:
-                    if (Config.ZombieMessage) Say(Translate("CAUSE_ZOMBIE", victim.player.channel.owner.playerID.characterName), DeathMsgColor, Config.DeathIconURL);
-                    if (Config.LocationMessage) Say(Translate("LOCATION", victim.player.channel.owner.playerID.characterName, VictimLocation(victim.player)), LocationMsgColor, Config.LocationIconURL);
+                    if (Config.ZombieMessage) Say(m_StringLocalizer["CAUSE_ZOMBIE", victim.player.channel.owner.playerID.characterName), DeathMsgColor, Config.DeathIconURL);
+                    if (Config.LocationMessage) Say(m_StringLocalizer["LOCATION", victim.player.channel.owner.playerID.characterName, VictimLocation(victim.player)), LocationMsgColor, Config.LocationIconURL);
                     break;
                 default:
                     Logger.LogError("Error. Please contact nelson!");
