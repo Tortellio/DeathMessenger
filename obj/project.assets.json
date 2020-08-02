@@ -3487,7 +3487,7 @@
     "version": "1.0.0",
     "restore": {
       "projectUniqueName": "D:\\PROGRAMMING\\Games\\Unturned\\My Plugins\\DeathMessenger\\DeathMessenger.csproj",
-      "projectName": "DeathMessenger",
+      "projectName": "Tortellio.DeathMessenger",
       "projectPath": "D:\\PROGRAMMING\\Games\\Unturned\\My Plugins\\DeathMessenger\\DeathMessenger.csproj",
       "packagesPath": "C:\\Users\\irfan\\.nuget\\packages\\",
       "outputPath": "D:\\PROGRAMMING\\Games\\Unturned\\My Plugins\\DeathMessenger\\obj\\",

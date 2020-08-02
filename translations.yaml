@@ -4,6 +4,7 @@
 PLUGIN_EVENTS:
     PLUGIN_START: "DeathMessenger by Tortellio has been loaded."
     PLUGIN_STOP: "DeathMessenger by Tortellio has been unloaded."
+    ERROR: "Error. Please contact nelson!"
 
 DEATH_CAUSES:
     CAUSE_ACID: "{0} was blown up by a zombie!"

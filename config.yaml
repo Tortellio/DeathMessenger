@@ -1,12 +1,13 @@
 Colors:
     DeathColor: "Red"
     LocationColor: "Yellow"
+
 Icons:
     DeathIconURL: "https://i.imgur.com/RwNhu8v.png"
     LocationIconURL: "https://i.imgur.com/AlIq6xx.png"
-Locations:
+
+Messages:
     LocationMessage: "true"
-Death_Causes:
     AcidMessage: "true"
     AnimalMessage: "true"
     ArenaMessage: "true"
@@ -37,4 +38,3 @@ Death_Causes:
     VehicleMessage: "true"
     WaterMessage: "true"
     ZombieMessage: "true"
-    
