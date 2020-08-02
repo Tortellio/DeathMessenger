@@ -1,17 +1,16 @@
-﻿using System;
+﻿using Cysharp.Threading.Tasks;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Localization;
 using Microsoft.Extensions.Logging;
-using Cysharp.Threading.Tasks;
 using OpenMod.Unturned.Plugins;
 using OpenMod.API.Plugins;
 using SDG.Unturned;
-using UnityEngine;
 using Steamworks;
+using System;
 using System.Collections.Generic;
-using OpenMod.API.Users;
-using Math = System.Math;
 using System.Linq;
+using UnityEngine;
+using Math = System.Math;
 
 [assembly: PluginMetadata("Tortellio.DeathMessenger", Author = "Tortellio", DisplayName = "DeathMessenger", 
     Website = "https://github.com/Tortellio/DeathMessenger/")]

@@ -247,3 +247,4 @@ D:\PROGRAMMING\Games\Unturned\My Plugins\DeathMessenger\bin\Release\net461\Syste
 D:\PROGRAMMING\Games\Unturned\My Plugins\DeathMessenger\obj\Release\net461\DeathMessenger.csproj.CopyComplete
 D:\PROGRAMMING\Games\Unturned\My Plugins\DeathMessenger\obj\Release\net461\DeathMessenger.dll
 D:\PROGRAMMING\Games\Unturned\My Plugins\DeathMessenger\obj\Release\net461\DeathMessenger.pdb
+D:\PROGRAMMING\Games\Unturned\My Plugins\DeathMessenger\obj\Release\net461\DeathMessenger.csprojAssemblyReference.cache
