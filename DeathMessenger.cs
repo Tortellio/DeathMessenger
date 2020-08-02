@@ -11,6 +11,7 @@ using Steamworks;
 using System.Collections.Generic;
 using OpenMod.API.Users;
 using Math = System.Math;
+using System.Linq;
 
 [assembly: PluginMetadata("Tortellio.DeathMessenger", Author = "Tortellio", DisplayName = "DeathMessenger", 
     Website = "https://github.com/Tortellio/DeathMessenger/")]
@@ -39,12 +40,12 @@ namespace DeathMessenger
             await UniTask.SwitchToMainThread();
 
             PlayerLife.onPlayerDied += OnPlayerDied;
-            m_Logger.LogInformation(m_StringLocalizer["PLUGIN_EVENTS:PLUGIN_START"]);
+            DeathMsgColor = GetColorFromName(m_Configuration["Colors:DeathColor"], Color.green);
+            LocationMsgColor = GetColorFromName(m_Configuration["Colors:LocationColor"], Color.green);
 
             await UniTask.SwitchToThreadPool();
 
-            DeathMsgColor = GetColorFromName(m_Configuration["Colors:DeathColor"], Color.green);
-            LocationMsgColor = GetColorFromName(m_Configuration["Colors:LocationColor"], Color.green);
+            m_Logger.LogInformation("DeathMessenger by Tortellio has been loaded.");
         }
 
         protected override async UniTask OnUnloadAsync()
@@ -52,9 +53,10 @@ namespace DeathMessenger
             await UniTask.SwitchToMainThread();
 
             PlayerLife.onPlayerDied -= OnPlayerDied;
-            m_Logger.LogInformation(m_StringLocalizer["PLUGIN_EVENTS:PLUGIN_STOP"]);
 
             await UniTask.SwitchToThreadPool();
+
+            m_Logger.LogInformation("DeathMessenger by Tortellio has been unloaded.");
         }
         public async void OnPlayerDied(PlayerLife victim, EDeathCause cause, ELimb limb, CSteamID killer)
         {
@@ -243,36 +245,8 @@ namespace DeathMessenger
         }
         public string VictimLocation(Player victim)
         {
-            var location = "Unknown";
-            //Vector3 tempLocation = new Vector3(float.MaxValue, float.MaxValue, float.MaxValue);
-            var tempDistance = float.MaxValue;
-            var info = Level.info;
-            var local = info?.getLocalization();
-            for (var i = 0; i < LevelNodes.nodes.Count; i++)
-            {
-                var node = LevelNodes.nodes[i];
-                if (node.type == ENodeType.LOCATION)
-                {
-                    var locationNode = node as LocationNode;
-                    var distance = Vector3.Distance(locationNode.point, victim.transform.position);
-                    if (distance < tempDistance)
-                    {
-                        //tempLocation = locationNode.point;
-                        tempDistance = distance;
-                        var text = locationNode?.name;
-                        if (!string.IsNullOrEmpty(text))
-                        {
-                            var key = text.Replace(' ', '_');
-                            if (local != null && local.has(key))
-                            {
-                                text = local.format(key);
-                                location = text;
-                            }
-                        }
-                    }
-                }
-            }
-            return location;
+            var node = LevelNodes.nodes.OfType<LocationNode>().OrderBy(k => Vector3.Distance(k.point, victim.transform.position)).FirstOrDefault();
+            return node.name;
         }
         public List<string> WrapMessage(string text)
         {
@@ -303,18 +277,6 @@ namespace DeathMessenger
                 lines.Add(currentLine);
             }
             return lines;
-        }
-        public void Say(CSteamID CSteamID, string message, Color color, string imageURL)
-        {
-            var toPlayer = PlayerTool.getSteamPlayer(CSteamID);
-            foreach (var m in WrapMessage(message))
-            {
-                ChatManager.serverSendMessage(m, color, fromPlayer: null, toPlayer: toPlayer, mode: EChatMode.SAY, iconURL: imageURL, useRichTextFormatting: true);
-            }
-        }
-        public void Say(Player player, string message, Color color, string imageURL)
-        {
-            Say(player.channel.owner.playerID.steamID, message, color, imageURL);
         }
         public void Say(string message, Color color, string imageURL)
         {

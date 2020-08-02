@@ -2,8 +2,6 @@
 # You can delete this file if you do not need translations
 
 PLUGIN_EVENTS:
-    PLUGIN_START: "DeathMessenger by Tortellio has been loaded."
-    PLUGIN_STOP: "DeathMessenger by Tortellio has been unloaded."
     ERROR: "Error. Please contact nelson!"
 
 DEATH_CAUSES:
@@ -37,4 +35,4 @@ DEATH_CAUSES:
     CAUSE_BURNER: "{0} was burned by a zombie!"
     CAUSE_SPIT: "{0} was dissolved by a zombie!"
     CAUSE_SPARK: "{0} was electrocuted by a zombie!"
-    LOCATION: "Death Detector: {0} nearest location is {1}!"
+    LOCATION: "Death Detector: {0} last location is near {1}!"
